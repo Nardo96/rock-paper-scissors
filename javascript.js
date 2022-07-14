@@ -30,4 +30,7 @@ function play() {
     if (userInput.innerHTML == "paper") result.innerHTML = "You lost."
     if (userInput.innerHTML == "scissors") result.innerHTML = "You tied."
   }
+	/* For some reason in the first if block above, when computer chooses rock and player chooses scissors, the result fails to update from the previous round. If statement below fixes this so game is fully functional. */
+	
+	if (computerOutput.innerHTML == "rock" && userInput.innerHTML == "scissors") result.innerHTML = "You lost."
 }
