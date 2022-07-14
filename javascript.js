@@ -6,4 +6,9 @@ function computerPlay() {
 
 const computerOutput = document.getElementById("computer-output")
 computerOutput.innerHTML = computerPlay();
-console.log(computerPlay());
+
+let playerInput;
+do playerInput = prompt("Rock, paper, or scissors?")?.toLowerCase()
+while (playerInput != "rock" 
+    && playerInput != "paper" 
+    && playerInput != "scissors");
