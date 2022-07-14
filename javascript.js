@@ -1,4 +1,4 @@
-const choices = ["Rock", "Paper", "Scissors"];
+const choices = ["rock", "paper", "scissors"];
 
 function computerPlay() {
     return choices[(Math.floor(Math.random()*choices.length))]
@@ -15,11 +15,25 @@ while (playerInput != "rock"
     
  //replaced by button input   */
 
- const rockButton = document.getElementById("rock");
- const paperButton = document.getElementById("paper");
- const scissorsButton = document.getElementById("scissors");
-
  function setUserInput(element) {
      userInput.innerHTML = element.id;
 
  }
+const result = document.getElementById("game-result");
+function play() {
+     if (computerOutput.innerHTML == "rock"){
+         if (userInput.innerHTML == "rock") result.innerHTML = "You tied."
+         if (userInput.innerHTML == "paper") result.innerHTML = "You won."
+         if (userInput.innerHTML == "scissors") result.innerHMTL = "You lost."
+     }
+     if (computerOutput.innerHTML == "paper"){
+         if (userInput.innerHTML == "rock") result.innerHTML = "You lost."
+         if (userInput.innerHTML == "paper") result.innerHTML = "You tied."
+         if (userInput.innerHTML == "scissors") result.innerHTML = "You won!"
+     }
+     if (computerOutput.innerHTML == "scissors"){
+         if (userInput.innerHTML == "rock") result.innerHTML = "You won!"
+         if (userInput.innerHTML == "paper") result.innerHTML = "you lost."
+         if (userInput.innerHTML == "scissors") result.innerHTML = "You tied."
+     }
+}
