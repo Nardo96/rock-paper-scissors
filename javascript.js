@@ -1,3 +1,4 @@
+'use strict'
 const choices = ["rock", "paper", "scissors"];
 
 function computerPlay() {
@@ -6,9 +7,16 @@ function computerPlay() {
 
 const computerOutput = document.getElementById("computer-output")
 const userInput = document.getElementById("user-input");
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
 
-function setUserInput(element) {
-	userInput.textContent = element.id;
+rockBtn.addEventListener('click', setUserInput);
+paperBtn.addEventListener('click', setUserInput);
+scissorsBtn.addEventListener('click', setUserInput);
+
+function setUserInput() {
+	userInput.textContent = this.id;
 	play()
 }
 
