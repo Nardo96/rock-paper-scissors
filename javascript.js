@@ -1,15 +1,19 @@
 'use strict'
 const choices = ["rock", "paper", "scissors"];
 
-function computerPlay() {
-  computerOutput.textContent = choices[(Math.floor(Math.random()*choices.length))]
-}
-
 const computerOutput = document.getElementById("computer-output")
 const userInput = document.getElementById("user-input");
+const result = document.getElementById("game-result");
+
 const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorsBtn = document.getElementById("scissors");
+
+const wins = document.getElementById("wins")
+const losses = document.getElementById("losses")
+let winCounter = 0;
+let lossCounter = 0;
+
 
 rockBtn.addEventListener('click', setUserInput);
 paperBtn.addEventListener('click', setUserInput);
@@ -20,7 +24,10 @@ function setUserInput() {
 	play()
 }
 
-const result = document.getElementById("game-result");
+function computerPlay() {
+	computerOutput.textContent = choices[(Math.floor(Math.random()*choices.length))]
+  }
+
 function play() {
 	computerPlay();
   if (computerOutput.textContent == "rock"){
@@ -40,7 +47,16 @@ function play() {
   }
 	/* For some reason in the first if block above, when computer chooses rock and player chooses scissors, the result fails to update from the previous round. If statement below fixes this so game is fully functional. */
 
-	if (computerOutput.textContent == "rock" && userInput.textContent == "scissors") result.textContent = "You lost."
+	if (computerOutput.textContent == "rock" && userInput.textContent == "scissors") result.textContent = "You lost.";
+
+	if (result.textContent == "You lost."){
+		lossCounter += 1;
+		losses.textContent = lossCounter;
+	} else if (result.textContent == "You won!"){
+		winCounter += 1;
+		wins.textContent = winCounter;
+	}
+
 }
 
 function testGame(){
